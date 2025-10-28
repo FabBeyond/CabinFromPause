@@ -84,23 +84,18 @@ namespace CabinFromPause
 
         public IEnumerator Save()
         {
-            print(0);
             if (!CustomLevelManager.control.inFullPlaytestMode && !CustomLevelManager.control.LoadLevel_Play)
             {
-                print(1);
                 levelEditorManager.Save(false, false);
-                print(2);
                 while (!levelEditorManager.hasSavedLevelRecently)
                 {
-                    print(3);
                     yield return null;
                 }
                 GameObject.Find("SaveConfirmDialog").SetActive(false);
             }
 
 
-            print(5);
-            SceneManager.LoadSceneAsync("Peaks_CustomLevel_Staging");
+            SceneManager.LoadSceneAsync("Peaks_CustomLevel_Staging"); 
         }
     }
 }
