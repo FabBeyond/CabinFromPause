@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>CabinFromPause</AssemblyName>
+    <RootNamespace>CabinFromPause</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\BepInEx\core\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\Peaks of Yore_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\Peaks of Yore_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\Peaks of Yore_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+	    <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\Peaks of Yore_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Addressables">
+	    <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\Peaks of Yore_Data\Managed\UnityEngine.Addressables.dll</HintPath>
+    </Reference>
+	  <Reference Include="UnityEngine.ResourceManager">
+		  <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\Peaks of Yore_Data\Managed\UnityEngine.ResourceManager.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UI">
+		  <HintPath>C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\Peaks of Yore_Data\Managed\UnityEngine.UI.dll</HintPath>
+	  </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="COPY &quot;$(TargetPath)&quot; &quot;C:/Program Files (x86)/Steam/steamapps/common/Peaks of Yore\BepInEx\plugins&quot;" />
+  </Target>
+</Project>
